@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: backend-secret
+type: Opaque
+data:
+  .env: |
+  DB_HOST = /cloudsql/server-hosting-303517:europe-west1:serverhosting-db
+  DB_NAME = serverhostingdb
+  DB_DIALECT = postgres
+  PORT = '8080'
+  FRONTEND_URL = http://localhost:3000/
+  RAMGB_PRICE = '400'
+  SSDGB_PRICE = '20'
+  BACKUPGB_PRICE = '10'
+  STRIPE_SECRET_TEST = 
+  DB_USER = 
+  DB_PASSWORD = 
+  JWT_SECRET = 
+  INFO_EMAIL_ADDRESS = 
+  INFO_EMAIL_PASSWORD = 
