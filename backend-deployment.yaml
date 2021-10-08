@@ -1,0 +1,33 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  selector:
+    matchLabels:
+      app: website
+      tier: backend
+      track: stable
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: website
+        tier: backend
+        track: stable
+    spec:
+      containers:
+        - name: website-backend
+          image: "eu.gcr.io/server-hosting-303517/website/back-end:latest"
+          ports:
+            - name: http
+              containerPort: 8080
+          volumeMounts:
+            - mountPath: /usr/src/app/.env
+              name: env-file
+              subPath: .env
+      volumes:
+        - name: env-file
+          secret:
+            secretName: backend-secret
