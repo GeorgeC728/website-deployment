@@ -1,13 +1,25 @@
-apiVersion: v1
-kind: Service
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: frontend
 spec:
   selector:
-    app: website
-    tier: frontend
-  ports:
-  - protocol: "TCP"
-    port: 80
-    targetPort: 80
-  type: LoadBalancer
+    matchLabels:
+      app: website
+      tier: frontend
+      track: stable
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: website
+        tier: frontend
+        track: stable
+    spec:
+      containers:
+        - name: nginx
+          image: "eu.gcr.io/server-hosting-303517/website/front-end:latest"
+          lifecycle:
+            preStop:
+              exec:
+                command: ["/usr/sbin/nginx","-s","quit"]

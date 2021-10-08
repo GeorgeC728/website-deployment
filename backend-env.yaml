@@ -3,19 +3,19 @@ kind: Secret
 metadata:
   name: backend-secret
 type: Opaque
-data:
+stringData:
   .env: |
-    DB_HOST = /cloudsql/server-hosting-303517:europe-west1:serverhosting-db
-    DB_NAME = serverhostingdb
-    DB_DIALECT = postgres
-    PORT = '8080'
-    FRONTEND_URL = http://localhost:3000/
-    RAMGB_PRICE = '400'
-    SSDGB_PRICE = '20'
-    BACKUPGB_PRICE = '10'
-    STRIPE_SECRET_TEST = 
-    DB_USER = 
-    DB_PASSWORD = 
-    JWT_SECRET = 
-    INFO_EMAIL_ADDRESS = 
-    INFO_EMAIL_PASSWORD = 
+    DB_HOST=/cloudsql/server-hosting-303517:europe-west1:serverhosting-db
+    DB_NAME=serverhostingdb
+    DB_DIALECT=postgres
+    PORT='8080'
+    FRONTEND_URL=http://localhost:3000/
+    RAMGB_PRICE=400
+    SSDGB_PRICE=20
+    BACKUPGB_PRICE=10
+    STRIPE_SECRET_TEST=sk_test_51IHeJCAgE84zSyWHOEAl7lOFsNeu8eBmX4Nl0zNhbTcouPZMVGaQOBBKMQpmJ4fXrasxPkLSdSmHfBn9zJbfXYU000DIwRaJ2v
+    DB_USER=timgolding
+    DB_PASSWORD=Wetbag55
+    JWT_SECRET=5CEBCC5E89EADEE5BF9F3404C800418A34C00D47EB4096E39D8E43E256077834
+    INFO_EMAIL_ADDRESS=tgolding55dev@gmail.com
+    INFO_EMAIL_PASSWORD=BigDevPassword123!
