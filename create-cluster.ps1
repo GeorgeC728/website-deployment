@@ -1,0 +1,1 @@
+gcloud container clusters create website-cluster --region=europe-west2-c --enable-ip-alias --subnetwork=default
