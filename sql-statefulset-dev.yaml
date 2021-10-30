@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: sql
+  namespace: website-dev
+spec:
+  selector:
+    matchLabels:
+      app: sql
+  serviceName: "sql"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sql
+    spec:
+      containers:
+      - name: sql
+        image: postgres:13
+        env:
+        - name: POSTGRES_PASSWORD
+          value: "pass"
+        ports:
+        - containerPort: 5432
+          name: sql-port
+        volumeMounts:
+        - name: datastore
+          mountPath: /var/lib/postgresql/data
+          subPath: data
+  volumeClaimTemplates:
+  - metadata:
+      name: datastore
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 5Gi
