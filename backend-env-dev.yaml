@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: backend
+  namespace: website-dev
+type: Opaque
+stringData:
+  .env: |
+    DB_HOST=sql.website-dev.svc.cluster.local
+    DB_NAME=serverhostingdb
+    DB_DIALECT=postgres
+    DB_PORT=5432
+    PORT=8080
+    FRONTEND_URL=http://localhost:3000/
+    RAMGB_PRICE=400
+    SSDGB_PRICE=20
+    BACKUPGB_PRICE=10
+    STRIPE_SECRET_TEST=sk_test_51IHeJCAgE84zSyWHOEAl7lOFsNeu8eBmX4Nl0zNhbTcouPZMVGaQOBBKMQpmJ4fXrasxPkLSdSmHfBn9zJbfXYU000DIwRaJ2v
+    DB_USER=backend
+    DB_PASSWORD=password
+    JWT_SECRET=5CEBCC5E89EADEE5BF9F3404C800418A34C00D47EB4096E39D8E43E256077834
+    INFO_EMAIL_ADDRESS=tgolding55dev@gmail.com
+    INFO_EMAIL_PASSWORD=BigDevPassword123!
+    TEMPCLUSTERIP=34.89.121.229
+    TEMPK8SAPI=http://34.89.121.229:32592/api/v1/

@@ -1,25 +1,23 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend
+  namespace: website-dev
 spec:
   selector:
     matchLabels:
       app: website
       tier: backend
-      track: stable
   replicas: 3
   template:
     metadata:
       labels:
         app: website
         tier: backend
-        track: stable
     spec:
       containers:
         - name: website-backend
-          image: "eu.gcr.io/server-hosting-303517/website/back-end:latest"
+          image: "eu.gcr.io/server-hosting-303517/website/back-end:dev"
           ports:
             - name: http
               containerPort: 8080
@@ -30,4 +28,4 @@ spec:
       volumes:
         - name: env-file
           secret:
-            secretName: backend-secret
+            secretName: backend

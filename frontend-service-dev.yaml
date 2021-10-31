@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: frontend
+  namespace: website-dev
 spec:
   selector:
     app: website
@@ -11,4 +12,4 @@ spec:
     port: 80
     targetPort: 80
   type: LoadBalancer
-  loadBalancerIP: 35.246.23.17
+  #loadBalancerIP: 35.246.23.17

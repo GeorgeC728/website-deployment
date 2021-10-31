@@ -2,23 +2,23 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend
+  namespace: website-dev
 spec:
   selector:
     matchLabels:
       app: website
       tier: frontend
-      track: stable
   replicas: 1
   template:
     metadata:
       labels:
         app: website
         tier: frontend
-        track: stable
     spec:
       containers:
         - name: nginx
-          image: "eu.gcr.io/server-hosting-303517/website/front-end:latest"
+          image: "eu.gcr.io/server-hosting-303517/website/front-end:dev"
+          imagePullPolicy: Always
           lifecycle:
             preStop:
               exec:
