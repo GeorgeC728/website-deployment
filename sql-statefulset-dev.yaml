@@ -20,12 +20,14 @@ spec:
         env:
         - name: POSTGRES_PASSWORD
           value: "pass"
+        - name: PGDATA
+          value: /data/pgdata
         ports:
         - containerPort: 5432
           name: sql-port
         volumeMounts:
         - name: datastore
-          mountPath: /var/lib/postgresql/data
+          mountPath: /data
           subPath: data
   volumeClaimTemplates:
   - metadata:
