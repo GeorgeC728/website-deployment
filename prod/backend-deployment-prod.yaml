@@ -18,6 +18,7 @@ spec:
       containers:
         - name: website-backend
           image: "eu.gcr.io/server-hosting-303517/website/back-end:prod"
+          imagePullPolicy: Always
           ports:
             - name: http
               containerPort: 8080
