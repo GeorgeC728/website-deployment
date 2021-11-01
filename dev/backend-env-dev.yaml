@@ -22,4 +22,4 @@ stringData:
     INFO_EMAIL_ADDRESS=tgolding55dev@gmail.com
     INFO_EMAIL_PASSWORD=BigDevPassword123!
     TEMPCLUSTERIP=34.89.121.229
-    TEMPK8SAPI=http://34.89.121.229:32592/api/v1/
+    TEMPK8SAPI=http://34.105.191.166:31602/api/v1/
